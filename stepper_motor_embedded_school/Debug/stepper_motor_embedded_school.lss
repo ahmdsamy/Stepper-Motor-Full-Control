@@ -1,0 +1,1702 @@
+
+stepper_motor_embedded_school.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000008f4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000001a  00800060  000008f4  00000988  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000010  0080007a  0080007a  000009a2  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  000009a4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000082  00000000  00000000  00001070  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      0000002f  00000000  00000000  000010f2  2**0
+                  CONTENTS, READONLY
+  6 .debug_aranges 00000110  00000000  00000000  00001121  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   000010ea  00000000  00000000  00001231  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000005ce  00000000  00000000  0000231b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   000004a5  00000000  00000000  000028e9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  0000023c  00000000  00000000  00002d90  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    0000039a  00000000  00000000  00002fcc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    00000f0f  00000000  00000000  00003366  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 000000b0  00000000  00000000  00004275  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 54 01 	jmp	0x2a8	; 0x2a8 <__vector_10>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e4 ef       	ldi	r30, 0xF4	; 244
+  68:	f8 e0       	ldi	r31, 0x08	; 8
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	aa 37       	cpi	r26, 0x7A	; 122
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	aa e7       	ldi	r26, 0x7A	; 122
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	aa 38       	cpi	r26, 0x8A	; 138
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 ed 03 	call	0x7da	; 0x7da <main>
+  8a:	0c 94 78 04 	jmp	0x8f0	; 0x8f0 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <BTN_Init>:
+};
+
+static unsigned char State[NUM_OF_BTNS];
+static unsigned char GetState(unsigned char BtnID);
+void BTN_Init(void)
+{
+  92:	ef 92       	push	r14
+  94:	ff 92       	push	r15
+  96:	0f 93       	push	r16
+  98:	1f 93       	push	r17
+  9a:	cf 93       	push	r28
+  9c:	df 93       	push	r29
+  9e:	c1 e6       	ldi	r28, 0x61	; 97
+  a0:	d0 e0       	ldi	r29, 0x00	; 0
+  a2:	0a e7       	ldi	r16, 0x7A	; 122
+  a4:	10 e0       	ldi	r17, 0x00	; 0
+	}
+};
+
+static unsigned char State[NUM_OF_BTNS];
+static unsigned char GetState(unsigned char BtnID);
+void BTN_Init(void)
+  a6:	0f 2e       	mov	r0, r31
+  a8:	f9 e6       	ldi	r31, 0x69	; 105
+  aa:	ef 2e       	mov	r14, r31
+  ac:	f0 e0       	ldi	r31, 0x00	; 0
+  ae:	ff 2e       	mov	r15, r31
+  b0:	f0 2d       	mov	r31, r0
+  b2:	fe 01       	movw	r30, r28
+  b4:	31 97       	sbiw	r30, 0x01	; 1
+	unsigned char BtnMask;
+	for(LoopIndex = 0 ; LoopIndex < NUM_OF_BTNS ; LoopIndex ++)
+	{
+		BtnPort = BtnConfigData[LoopIndex].BtnPort;
+		BtnMask = BtnConfigData[LoopIndex].BtnMask;
+		DIO_vidWritePortDirection(BtnPort,BtnMask,0x00);
+  b6:	40 e0       	ldi	r20, 0x00	; 0
+  b8:	68 81       	ld	r22, Y
+  ba:	80 81       	ld	r24, Z
+  bc:	0e 94 ae 00 	call	0x15c	; 0x15c <DIO_vidWritePortDirection>
+		State[LoopIndex] = STATE_OPEN;
+  c0:	f8 01       	movw	r30, r16
+  c2:	11 92       	st	Z+, r1
+  c4:	8f 01       	movw	r16, r30
+  c6:	22 96       	adiw	r28, 0x02	; 2
+{
+	
+	unsigned char LoopIndex;
+	unsigned char BtnPort;
+	unsigned char BtnMask;
+	for(LoopIndex = 0 ; LoopIndex < NUM_OF_BTNS ; LoopIndex ++)
+  c8:	ce 15       	cp	r28, r14
+  ca:	df 05       	cpc	r29, r15
+  cc:	91 f7       	brne	.-28     	; 0xb2 <BTN_Init+0x20>
+		BtnPort = BtnConfigData[LoopIndex].BtnPort;
+		BtnMask = BtnConfigData[LoopIndex].BtnMask;
+		DIO_vidWritePortDirection(BtnPort,BtnMask,0x00);
+		State[LoopIndex] = STATE_OPEN;
+	}
+}
+  ce:	df 91       	pop	r29
+  d0:	cf 91       	pop	r28
+  d2:	1f 91       	pop	r17
+  d4:	0f 91       	pop	r16
+  d6:	ff 90       	pop	r15
+  d8:	ef 90       	pop	r14
+  da:	08 95       	ret
+
+000000dc <BTN_GetBtnState>:
+
+void BTN_GetBtnState(unsigned char u8BtnId,unsigned char* pu8BtnStatePtr)
+{
+  dc:	ef 92       	push	r14
+  de:	ff 92       	push	r15
+  e0:	0f 93       	push	r16
+  e2:	1f 93       	push	r17
+  e4:	cf 93       	push	r28
+  e6:	df 93       	push	r29
+  e8:	1f 92       	push	r1
+  ea:	cd b7       	in	r28, 0x3d	; 61
+  ec:	de b7       	in	r29, 0x3e	; 62
+  ee:	7b 01       	movw	r14, r22
+{
+	unsigned char BtnPort;
+	unsigned char BtnMask;
+	unsigned char BtnData;
+	unsigned char BtnOut;
+	BtnPort = BtnConfigData[BtnID].BtnPort;
+  f0:	08 2f       	mov	r16, r24
+  f2:	10 e0       	ldi	r17, 0x00	; 0
+	BtnMask = BtnConfigData[BtnID].BtnMask;
+  f4:	f8 01       	movw	r30, r16
+  f6:	ee 0f       	add	r30, r30
+  f8:	ff 1f       	adc	r31, r31
+  fa:	e0 5a       	subi	r30, 0xA0	; 160
+  fc:	ff 4f       	sbci	r31, 0xFF	; 255
+	DIO_vidReadPortData(BtnPort,BtnMask,&BtnData);
+  fe:	ae 01       	movw	r20, r28
+ 100:	4f 5f       	subi	r20, 0xFF	; 255
+ 102:	5f 4f       	sbci	r21, 0xFF	; 255
+ 104:	61 81       	ldd	r22, Z+1	; 0x01
+ 106:	80 81       	ld	r24, Z
+ 108:	0e 94 0e 01 	call	0x21c	; 0x21c <DIO_vidReadPortData>
+	
+	if(State[BtnID] == STATE_OPEN)
+ 10c:	f8 01       	movw	r30, r16
+ 10e:	e6 58       	subi	r30, 0x86	; 134
+ 110:	ff 4f       	sbci	r31, 0xFF	; 255
+ 112:	80 81       	ld	r24, Z
+ 114:	81 11       	cpse	r24, r1
+ 116:	09 c0       	rjmp	.+18     	; 0x12a <BTN_GetBtnState+0x4e>
+	{
+		if(BtnData == 0x00)
+ 118:	89 81       	ldd	r24, Y+1	; 0x01
+ 11a:	88 23       	and	r24, r24
+ 11c:	a1 f0       	breq	.+40     	; 0x146 <BTN_GetBtnState+0x6a>
+			State[BtnID] = STATE_OPEN;
+			BtnOut = BTN_STATE_INACTIVE;
+		}
+		else
+		{
+			State[BtnID] = STATE_CLOSED;
+ 11e:	f8 01       	movw	r30, r16
+ 120:	e6 58       	subi	r30, 0x86	; 134
+ 122:	ff 4f       	sbci	r31, 0xFF	; 255
+ 124:	81 e0       	ldi	r24, 0x01	; 1
+ 126:	80 83       	st	Z, r24
+ 128:	0f c0       	rjmp	.+30     	; 0x148 <BTN_GetBtnState+0x6c>
+			BtnOut = BTN_STATE_INACTIVE;
+		}
+	}
+	else
+	{
+		if(BtnData == 0x00)
+ 12a:	89 81       	ldd	r24, Y+1	; 0x01
+ 12c:	81 11       	cpse	r24, r1
+ 12e:	05 c0       	rjmp	.+10     	; 0x13a <BTN_GetBtnState+0x5e>
+		{
+			State[BtnID] = STATE_OPEN;
+ 130:	f8 01       	movw	r30, r16
+ 132:	e6 58       	subi	r30, 0x86	; 134
+ 134:	ff 4f       	sbci	r31, 0xFF	; 255
+ 136:	10 82       	st	Z, r1
+ 138:	07 c0       	rjmp	.+14     	; 0x148 <BTN_GetBtnState+0x6c>
+			BtnOut = BTN_STATE_ACTIVE;
+		}
+		else
+		{
+			State[BtnID] = STATE_CLOSED;
+ 13a:	f8 01       	movw	r30, r16
+ 13c:	e6 58       	subi	r30, 0x86	; 134
+ 13e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 140:	81 e0       	ldi	r24, 0x01	; 1
+ 142:	80 83       	st	Z, r24
+ 144:	01 c0       	rjmp	.+2      	; 0x148 <BTN_GetBtnState+0x6c>
+	if(State[BtnID] == STATE_OPEN)
+	{
+		if(BtnData == 0x00)
+		{
+			State[BtnID] = STATE_OPEN;
+			BtnOut = BTN_STATE_INACTIVE;
+ 146:	81 e0       	ldi	r24, 0x01	; 1
+	}
+}
+
+void BTN_GetBtnState(unsigned char u8BtnId,unsigned char* pu8BtnStatePtr)
+{
+   *pu8BtnStatePtr = GetState(u8BtnId);
+ 148:	f7 01       	movw	r30, r14
+ 14a:	80 83       	st	Z, r24
+}
+ 14c:	0f 90       	pop	r0
+ 14e:	df 91       	pop	r29
+ 150:	cf 91       	pop	r28
+ 152:	1f 91       	pop	r17
+ 154:	0f 91       	pop	r16
+ 156:	ff 90       	pop	r15
+ 158:	ef 90       	pop	r14
+ 15a:	08 95       	ret
+
+0000015c <DIO_vidWritePortDirection>:
+#define TOGGLE_REG_VAL(REG,MASK) REG^=MASK;
+
+
+void DIO_vidWritePortDirection(unsigned char u8PortName,unsigned char u8PortMask,unsigned char u8Direction)
+{
+	switch(u8PortName)
+ 15c:	81 30       	cpi	r24, 0x01	; 1
+ 15e:	81 f0       	breq	.+32     	; 0x180 <DIO_vidWritePortDirection+0x24>
+ 160:	28 f0       	brcs	.+10     	; 0x16c <DIO_vidWritePortDirection+0x10>
+ 162:	82 30       	cpi	r24, 0x02	; 2
+ 164:	b9 f0       	breq	.+46     	; 0x194 <DIO_vidWritePortDirection+0x38>
+ 166:	83 30       	cpi	r24, 0x03	; 3
+ 168:	41 f5       	brne	.+80     	; 0x1ba <DIO_vidWritePortDirection+0x5e>
+ 16a:	1e c0       	rjmp	.+60     	; 0x1a8 <DIO_vidWritePortDirection+0x4c>
+	{
+		case PA:
+		{
+			SET_REG_VAL(DDRA,u8Direction,u8PortMask);
+ 16c:	8a b3       	in	r24, 0x1a	; 26
+ 16e:	96 2f       	mov	r25, r22
+ 170:	90 95       	com	r25
+ 172:	89 23       	and	r24, r25
+ 174:	8a bb       	out	0x1a, r24	; 26
+ 176:	8a b3       	in	r24, 0x1a	; 26
+ 178:	64 23       	and	r22, r20
+ 17a:	68 2b       	or	r22, r24
+ 17c:	6a bb       	out	0x1a, r22	; 26
+		}	
+		break;
+ 17e:	08 95       	ret
+		
+		case PB:
+		{
+			SET_REG_VAL(DDRB,u8Direction,u8PortMask);
+ 180:	87 b3       	in	r24, 0x17	; 23
+ 182:	96 2f       	mov	r25, r22
+ 184:	90 95       	com	r25
+ 186:	89 23       	and	r24, r25
+ 188:	87 bb       	out	0x17, r24	; 23
+ 18a:	87 b3       	in	r24, 0x17	; 23
+ 18c:	64 23       	and	r22, r20
+ 18e:	68 2b       	or	r22, r24
+ 190:	67 bb       	out	0x17, r22	; 23
+		}	
+		break;
+ 192:	08 95       	ret
+		case PC:
+		{
+			SET_REG_VAL(DDRC,u8Direction,u8PortMask);
+ 194:	84 b3       	in	r24, 0x14	; 20
+ 196:	96 2f       	mov	r25, r22
+ 198:	90 95       	com	r25
+ 19a:	89 23       	and	r24, r25
+ 19c:	84 bb       	out	0x14, r24	; 20
+ 19e:	84 b3       	in	r24, 0x14	; 20
+ 1a0:	64 23       	and	r22, r20
+ 1a2:	68 2b       	or	r22, r24
+ 1a4:	64 bb       	out	0x14, r22	; 20
+		}
+		break;
+ 1a6:	08 95       	ret
+		
+		case PD:
+		{
+			SET_REG_VAL(DDRD,u8Direction,u8PortMask);
+ 1a8:	81 b3       	in	r24, 0x11	; 17
+ 1aa:	96 2f       	mov	r25, r22
+ 1ac:	90 95       	com	r25
+ 1ae:	89 23       	and	r24, r25
+ 1b0:	81 bb       	out	0x11, r24	; 17
+ 1b2:	81 b3       	in	r24, 0x11	; 17
+ 1b4:	64 23       	and	r22, r20
+ 1b6:	68 2b       	or	r22, r24
+ 1b8:	61 bb       	out	0x11, r22	; 17
+ 1ba:	08 95       	ret
+
+000001bc <DIO_vidWritePortData>:
+	}
+	
+}
+ void DIO_vidWritePortData(unsigned char u8PortName,unsigned char u8PortMask,unsigned char u8Data)
+{
+		switch(u8PortName)
+ 1bc:	81 30       	cpi	r24, 0x01	; 1
+ 1be:	81 f0       	breq	.+32     	; 0x1e0 <DIO_vidWritePortData+0x24>
+ 1c0:	28 f0       	brcs	.+10     	; 0x1cc <DIO_vidWritePortData+0x10>
+ 1c2:	82 30       	cpi	r24, 0x02	; 2
+ 1c4:	b9 f0       	breq	.+46     	; 0x1f4 <DIO_vidWritePortData+0x38>
+ 1c6:	83 30       	cpi	r24, 0x03	; 3
+ 1c8:	41 f5       	brne	.+80     	; 0x21a <DIO_vidWritePortData+0x5e>
+ 1ca:	1e c0       	rjmp	.+60     	; 0x208 <DIO_vidWritePortData+0x4c>
+		{
+			case PA:
+			{
+				SET_REG_VAL(PORTA,u8Data,u8PortMask);
+ 1cc:	8b b3       	in	r24, 0x1b	; 27
+ 1ce:	96 2f       	mov	r25, r22
+ 1d0:	90 95       	com	r25
+ 1d2:	89 23       	and	r24, r25
+ 1d4:	8b bb       	out	0x1b, r24	; 27
+ 1d6:	8b b3       	in	r24, 0x1b	; 27
+ 1d8:	64 23       	and	r22, r20
+ 1da:	68 2b       	or	r22, r24
+ 1dc:	6b bb       	out	0x1b, r22	; 27
+			}
+			break;
+ 1de:	08 95       	ret
+			
+			case PB:
+			{
+				SET_REG_VAL(PORTB,u8Data,u8PortMask);
+ 1e0:	88 b3       	in	r24, 0x18	; 24
+ 1e2:	96 2f       	mov	r25, r22
+ 1e4:	90 95       	com	r25
+ 1e6:	89 23       	and	r24, r25
+ 1e8:	88 bb       	out	0x18, r24	; 24
+ 1ea:	88 b3       	in	r24, 0x18	; 24
+ 1ec:	64 23       	and	r22, r20
+ 1ee:	68 2b       	or	r22, r24
+ 1f0:	68 bb       	out	0x18, r22	; 24
+			}
+			break;
+ 1f2:	08 95       	ret
+			case PC:
+			{
+				SET_REG_VAL(PORTC,u8Data,u8PortMask);
+ 1f4:	85 b3       	in	r24, 0x15	; 21
+ 1f6:	96 2f       	mov	r25, r22
+ 1f8:	90 95       	com	r25
+ 1fa:	89 23       	and	r24, r25
+ 1fc:	85 bb       	out	0x15, r24	; 21
+ 1fe:	85 b3       	in	r24, 0x15	; 21
+ 200:	64 23       	and	r22, r20
+ 202:	68 2b       	or	r22, r24
+ 204:	65 bb       	out	0x15, r22	; 21
+			}
+			break;
+ 206:	08 95       	ret
+			
+			case PD:
+			{
+				SET_REG_VAL(PORTD,u8Data,u8PortMask);
+ 208:	82 b3       	in	r24, 0x12	; 18
+ 20a:	96 2f       	mov	r25, r22
+ 20c:	90 95       	com	r25
+ 20e:	89 23       	and	r24, r25
+ 210:	82 bb       	out	0x12, r24	; 18
+ 212:	82 b3       	in	r24, 0x12	; 18
+ 214:	64 23       	and	r22, r20
+ 216:	68 2b       	or	r22, r24
+ 218:	62 bb       	out	0x12, r22	; 18
+ 21a:	08 95       	ret
+
+0000021c <DIO_vidReadPortData>:
+		}
+	
+}
+ void DIO_vidReadPortData(unsigned char u8PortName,unsigned char u8PortMask,unsigned char *pu8DataPtr)
+ {
+	 switch(u8PortName)
+ 21c:	81 30       	cpi	r24, 0x01	; 1
+ 21e:	59 f0       	breq	.+22     	; 0x236 <DIO_vidReadPortData+0x1a>
+ 220:	28 f0       	brcs	.+10     	; 0x22c <DIO_vidReadPortData+0x10>
+ 222:	82 30       	cpi	r24, 0x02	; 2
+ 224:	69 f0       	breq	.+26     	; 0x240 <DIO_vidReadPortData+0x24>
+ 226:	83 30       	cpi	r24, 0x03	; 3
+ 228:	a1 f4       	brne	.+40     	; 0x252 <DIO_vidReadPortData+0x36>
+ 22a:	0f c0       	rjmp	.+30     	; 0x24a <DIO_vidReadPortData+0x2e>
+	 {
+		 case PA:
+		 *pu8DataPtr = GET_REG_VAL(PINA,u8PortMask);
+ 22c:	89 b3       	in	r24, 0x19	; 25
+ 22e:	68 23       	and	r22, r24
+ 230:	fa 01       	movw	r30, r20
+ 232:	60 83       	st	Z, r22
+		 break;
+ 234:	08 95       	ret
+		 case PB:
+		 *pu8DataPtr = GET_REG_VAL(PINB,u8PortMask);
+ 236:	86 b3       	in	r24, 0x16	; 22
+ 238:	68 23       	and	r22, r24
+ 23a:	fa 01       	movw	r30, r20
+ 23c:	60 83       	st	Z, r22
+		 break;
+ 23e:	08 95       	ret
+		 case PC:
+		 *pu8DataPtr = GET_REG_VAL(PINC,u8PortMask);
+ 240:	83 b3       	in	r24, 0x13	; 19
+ 242:	68 23       	and	r22, r24
+ 244:	fa 01       	movw	r30, r20
+ 246:	60 83       	st	Z, r22
+		 break;
+ 248:	08 95       	ret
+		 case PD:
+		 *pu8DataPtr = GET_REG_VAL(PIND,u8PortMask);
+ 24a:	80 b3       	in	r24, 0x10	; 16
+ 24c:	68 23       	and	r22, r24
+ 24e:	fa 01       	movw	r30, r20
+ 250:	60 83       	st	Z, r22
+ 252:	08 95       	ret
+
+00000254 <DIO_vidToggle_port>:
+ }
+
+
+void DIO_vidToggle_port(unsigned char u8PortName,unsigned char u8PortMask)
+{
+	switch(u8PortName)
+ 254:	81 30       	cpi	r24, 0x01	; 1
+ 256:	51 f0       	breq	.+20     	; 0x26c <DIO_vidToggle_port+0x18>
+ 258:	28 f0       	brcs	.+10     	; 0x264 <DIO_vidToggle_port+0x10>
+ 25a:	82 30       	cpi	r24, 0x02	; 2
+ 25c:	59 f0       	breq	.+22     	; 0x274 <DIO_vidToggle_port+0x20>
+ 25e:	83 30       	cpi	r24, 0x03	; 3
+ 260:	81 f4       	brne	.+32     	; 0x282 <DIO_vidToggle_port+0x2e>
+ 262:	0c c0       	rjmp	.+24     	; 0x27c <DIO_vidToggle_port+0x28>
+	{
+		case PA:
+		{
+			TOGGLE_REG_VAL(PORTA,u8PortMask);
+ 264:	8b b3       	in	r24, 0x1b	; 27
+ 266:	68 27       	eor	r22, r24
+ 268:	6b bb       	out	0x1b, r22	; 27
+		}	
+		break;
+ 26a:	08 95       	ret
+		
+		case PB:
+		{
+			TOGGLE_REG_VAL(PORTB,u8PortMask);
+ 26c:	88 b3       	in	r24, 0x18	; 24
+ 26e:	68 27       	eor	r22, r24
+ 270:	68 bb       	out	0x18, r22	; 24
+		}	
+		break;
+ 272:	08 95       	ret
+		case PC:
+		{
+			TOGGLE_REG_VAL(PORTC,u8PortMask);
+ 274:	85 b3       	in	r24, 0x15	; 21
+ 276:	68 27       	eor	r22, r24
+ 278:	65 bb       	out	0x15, r22	; 21
+		}
+		break;
+ 27a:	08 95       	ret
+		
+		case PD:
+		{
+			TOGGLE_REG_VAL(PORTD,u8PortMask);
+ 27c:	82 b3       	in	r24, 0x12	; 18
+ 27e:	68 27       	eor	r22, r24
+ 280:	62 bb       	out	0x12, r22	; 18
+ 282:	08 95       	ret
+
+00000284 <GPT_Init_Timer>:
+static IsrCallBackFnType CallBackPtr;
+
+
+void GPT_Init_Timer(IsrCallBackFnType IsrCbkFun)
+{
+	TCCR0 = 0x00;
+ 284:	13 be       	out	0x33, r1	; 51
+	TCCR0 |= 1<<WGM01;
+ 286:	23 b7       	in	r18, 0x33	; 51
+ 288:	28 60       	ori	r18, 0x08	; 8
+ 28a:	23 bf       	out	0x33, r18	; 51
+	OCR0 = 124;
+ 28c:	2c e7       	ldi	r18, 0x7C	; 124
+ 28e:	2c bf       	out	0x3c, r18	; 60
+	TIMSK |= 1 <<OCIE0;	
+ 290:	29 b7       	in	r18, 0x39	; 57
+ 292:	22 60       	ori	r18, 0x02	; 2
+ 294:	29 bf       	out	0x39, r18	; 57
+	CallBackPtr = IsrCbkFun; 
+ 296:	90 93 7f 00 	sts	0x007F, r25
+ 29a:	80 93 7e 00 	sts	0x007E, r24
+ 29e:	08 95       	ret
+
+000002a0 <GPT_TimerStart>:
+
+
+
+ void GPT_TimerStart(void)
+ {
+	 TCCR0 |= TIMER_START_MASK;
+ 2a0:	83 b7       	in	r24, 0x33	; 51
+ 2a2:	82 60       	ori	r24, 0x02	; 2
+ 2a4:	83 bf       	out	0x33, r24	; 51
+ 2a6:	08 95       	ret
+
+000002a8 <__vector_10>:
+ }
+ 
+
+ 
+ ISR(TIMER0_COMP_vect)
+ {
+ 2a8:	1f 92       	push	r1
+ 2aa:	0f 92       	push	r0
+ 2ac:	0f b6       	in	r0, 0x3f	; 63
+ 2ae:	0f 92       	push	r0
+ 2b0:	11 24       	eor	r1, r1
+ 2b2:	2f 93       	push	r18
+ 2b4:	3f 93       	push	r19
+ 2b6:	4f 93       	push	r20
+ 2b8:	5f 93       	push	r21
+ 2ba:	6f 93       	push	r22
+ 2bc:	7f 93       	push	r23
+ 2be:	8f 93       	push	r24
+ 2c0:	9f 93       	push	r25
+ 2c2:	af 93       	push	r26
+ 2c4:	bf 93       	push	r27
+ 2c6:	ef 93       	push	r30
+ 2c8:	ff 93       	push	r31
+	
+	 CallBackPtr();
+ 2ca:	e0 91 7e 00 	lds	r30, 0x007E
+ 2ce:	f0 91 7f 00 	lds	r31, 0x007F
+ 2d2:	09 95       	icall
+ }
+ 2d4:	ff 91       	pop	r31
+ 2d6:	ef 91       	pop	r30
+ 2d8:	bf 91       	pop	r27
+ 2da:	af 91       	pop	r26
+ 2dc:	9f 91       	pop	r25
+ 2de:	8f 91       	pop	r24
+ 2e0:	7f 91       	pop	r23
+ 2e2:	6f 91       	pop	r22
+ 2e4:	5f 91       	pop	r21
+ 2e6:	4f 91       	pop	r20
+ 2e8:	3f 91       	pop	r19
+ 2ea:	2f 91       	pop	r18
+ 2ec:	0f 90       	pop	r0
+ 2ee:	0f be       	out	0x3f, r0	; 63
+ 2f0:	0f 90       	pop	r0
+ 2f2:	1f 90       	pop	r1
+ 2f4:	18 95       	reti
+
+000002f6 <TimeoutInc>:
+static unsigned long int TimeoutCounter ;
+unsigned long int TimeoutCounter_stepper;
+
+static void TimeoutInc(void)
+{
+	TimeoutCounter ++;
+ 2f6:	80 91 80 00 	lds	r24, 0x0080
+ 2fa:	90 91 81 00 	lds	r25, 0x0081
+ 2fe:	a0 91 82 00 	lds	r26, 0x0082
+ 302:	b0 91 83 00 	lds	r27, 0x0083
+ 306:	01 96       	adiw	r24, 0x01	; 1
+ 308:	a1 1d       	adc	r26, r1
+ 30a:	b1 1d       	adc	r27, r1
+ 30c:	80 93 80 00 	sts	0x0080, r24
+ 310:	90 93 81 00 	sts	0x0081, r25
+ 314:	a0 93 82 00 	sts	0x0082, r26
+ 318:	b0 93 83 00 	sts	0x0083, r27
+	TimeoutCounter_stepper ++;
+ 31c:	80 91 86 00 	lds	r24, 0x0086
+ 320:	90 91 87 00 	lds	r25, 0x0087
+ 324:	a0 91 88 00 	lds	r26, 0x0088
+ 328:	b0 91 89 00 	lds	r27, 0x0089
+ 32c:	01 96       	adiw	r24, 0x01	; 1
+ 32e:	a1 1d       	adc	r26, r1
+ 330:	b1 1d       	adc	r27, r1
+ 332:	80 93 86 00 	sts	0x0086, r24
+ 336:	90 93 87 00 	sts	0x0087, r25
+ 33a:	a0 93 88 00 	sts	0x0088, r26
+ 33e:	b0 93 89 00 	sts	0x0089, r27
+ 342:	08 95       	ret
+
+00000344 <LED_Init>:
+		PC,LEFT_DIR_LED
+	}
+};
+
+void LED_Init(void)
+{
+ 344:	0f 93       	push	r16
+ 346:	1f 93       	push	r17
+ 348:	cf 93       	push	r28
+ 34a:	df 93       	push	r29
+ 34c:	c9 e6       	ldi	r28, 0x69	; 105
+ 34e:	d0 e0       	ldi	r29, 0x00	; 0
+	{
+		PC,LEFT_DIR_LED
+	}
+};
+
+void LED_Init(void)
+ 350:	01 e7       	ldi	r16, 0x71	; 113
+ 352:	10 e0       	ldi	r17, 0x00	; 0
+ 354:	fe 01       	movw	r30, r28
+ 356:	31 97       	sbiw	r30, 0x01	; 1
+	unsigned char LEDMask;
+	for(LoopIndex = 0 ; LoopIndex < NUM_OF_LEDS ; LoopIndex ++)
+	{
+		LEDPort = LEDConfigData[LoopIndex].LEDPort;
+		LEDMask = LEDConfigData[LoopIndex].LEDMask;
+		DIO_vidWritePortDirection(LEDPort,LEDMask,0xFF);
+ 358:	4f ef       	ldi	r20, 0xFF	; 255
+ 35a:	68 81       	ld	r22, Y
+ 35c:	80 81       	ld	r24, Z
+ 35e:	0e 94 ae 00 	call	0x15c	; 0x15c <DIO_vidWritePortDirection>
+ 362:	22 96       	adiw	r28, 0x02	; 2
+{
+	
+	unsigned char LoopIndex;
+	unsigned char LEDPort;
+	unsigned char LEDMask;
+	for(LoopIndex = 0 ; LoopIndex < NUM_OF_LEDS ; LoopIndex ++)
+ 364:	c0 17       	cp	r28, r16
+ 366:	d1 07       	cpc	r29, r17
+ 368:	a9 f7       	brne	.-22     	; 0x354 <LED_Init+0x10>
+	{
+		LEDPort = LEDConfigData[LoopIndex].LEDPort;
+		LEDMask = LEDConfigData[LoopIndex].LEDMask;
+		DIO_vidWritePortDirection(LEDPort,LEDMask,0xFF);
+	}
+	GPT_Init_Timer(TimeoutInc);
+ 36a:	8b e7       	ldi	r24, 0x7B	; 123
+ 36c:	91 e0       	ldi	r25, 0x01	; 1
+ 36e:	0e 94 42 01 	call	0x284	; 0x284 <GPT_Init_Timer>
+	GPT_TimerStart();
+ 372:	0e 94 50 01 	call	0x2a0	; 0x2a0 <GPT_TimerStart>
+}
+ 376:	df 91       	pop	r29
+ 378:	cf 91       	pop	r28
+ 37a:	1f 91       	pop	r17
+ 37c:	0f 91       	pop	r16
+ 37e:	08 95       	ret
+
+00000380 <DIR_MODE_LEDS>:
+
+void DIR_MODE_LEDS(unsigned char direction,unsigned char mode)
+{   
+ 380:	cf 93       	push	r28
+ 382:	c6 2f       	mov	r28, r22
+	
+	
+	if(TimeoutCounter>250)
+ 384:	40 91 80 00 	lds	r20, 0x0080
+ 388:	50 91 81 00 	lds	r21, 0x0081
+ 38c:	60 91 82 00 	lds	r22, 0x0082
+ 390:	70 91 83 00 	lds	r23, 0x0083
+ 394:	4b 3f       	cpi	r20, 0xFB	; 251
+ 396:	51 05       	cpc	r21, r1
+ 398:	61 05       	cpc	r22, r1
+ 39a:	71 05       	cpc	r23, r1
+ 39c:	a8 f1       	brcs	.+106    	; 0x408 <DIR_MODE_LEDS+0x88>
+	  {	
+	   if(direction==right)
+ 39e:	81 30       	cpi	r24, 0x01	; 1
+ 3a0:	51 f4       	brne	.+20     	; 0x3b6 <DIR_MODE_LEDS+0x36>
+	    {  
+			
+			DIO_vidWritePortData(PC,LEFT_DIR_LED,0x00);
+ 3a2:	40 e0       	ldi	r20, 0x00	; 0
+ 3a4:	68 e0       	ldi	r22, 0x08	; 8
+ 3a6:	82 e0       	ldi	r24, 0x02	; 2
+ 3a8:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+			DIO_vidToggle_port(PC,RIGHT_DIR_LED);
+ 3ac:	64 e0       	ldi	r22, 0x04	; 4
+ 3ae:	82 e0       	ldi	r24, 0x02	; 2
+ 3b0:	0e 94 2a 01 	call	0x254	; 0x254 <DIO_vidToggle_port>
+ 3b4:	0a c0       	rjmp	.+20     	; 0x3ca <DIR_MODE_LEDS+0x4a>
+		}
+		
+	   else if(direction==left)
+ 3b6:	82 30       	cpi	r24, 0x02	; 2
+ 3b8:	41 f4       	brne	.+16     	; 0x3ca <DIR_MODE_LEDS+0x4a>
+		{
+		
+		DIO_vidWritePortData(PC,RIGHT_DIR_LED,0x00);
+ 3ba:	40 e0       	ldi	r20, 0x00	; 0
+ 3bc:	64 e0       	ldi	r22, 0x04	; 4
+ 3be:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+		DIO_vidToggle_port(PC,LEFT_DIR_LED);
+ 3c2:	68 e0       	ldi	r22, 0x08	; 8
+ 3c4:	82 e0       	ldi	r24, 0x02	; 2
+ 3c6:	0e 94 2a 01 	call	0x254	; 0x254 <DIO_vidToggle_port>
+		
+	     }
+	
+
+		if(mode==mode_full)
+ 3ca:	c8 30       	cpi	r28, 0x08	; 8
+ 3cc:	51 f4       	brne	.+20     	; 0x3e2 <DIR_MODE_LEDS+0x62>
+			{   
+			
+			DIO_vidWritePortData(PC,HALF_MODE_LED,0x00);
+ 3ce:	40 e0       	ldi	r20, 0x00	; 0
+ 3d0:	62 e0       	ldi	r22, 0x02	; 2
+ 3d2:	82 e0       	ldi	r24, 0x02	; 2
+ 3d4:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+			DIO_vidToggle_port(PC,FULL_MODE_LED);
+ 3d8:	61 e0       	ldi	r22, 0x01	; 1
+ 3da:	82 e0       	ldi	r24, 0x02	; 2
+ 3dc:	0e 94 2a 01 	call	0x254	; 0x254 <DIO_vidToggle_port>
+ 3e0:	0b c0       	rjmp	.+22     	; 0x3f8 <DIR_MODE_LEDS+0x78>
+			}		   
+	
+		else if(mode==mode_half)
+ 3e2:	c4 30       	cpi	r28, 0x04	; 4
+ 3e4:	49 f4       	brne	.+18     	; 0x3f8 <DIR_MODE_LEDS+0x78>
+		   {
+			
+			 DIO_vidWritePortData(PC,FULL_MODE_LED,0x00); 
+ 3e6:	40 e0       	ldi	r20, 0x00	; 0
+ 3e8:	61 e0       	ldi	r22, 0x01	; 1
+ 3ea:	82 e0       	ldi	r24, 0x02	; 2
+ 3ec:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+			 DIO_vidToggle_port(PC,HALF_MODE_LED);
+ 3f0:	62 e0       	ldi	r22, 0x02	; 2
+ 3f2:	82 e0       	ldi	r24, 0x02	; 2
+ 3f4:	0e 94 2a 01 	call	0x254	; 0x254 <DIO_vidToggle_port>
+		  }
+	TimeoutCounter=0;
+ 3f8:	10 92 80 00 	sts	0x0080, r1
+ 3fc:	10 92 81 00 	sts	0x0081, r1
+ 400:	10 92 82 00 	sts	0x0082, r1
+ 404:	10 92 83 00 	sts	0x0083, r1
+	}
+ 408:	cf 91       	pop	r28
+ 40a:	08 95       	ret
+
+0000040c <stepper_Init>:
+
+extern unsigned long int TimeoutCounter_stepper ;
+
+void stepper_Init(void)
+{
+	DIO_vidWritePortDirection(PA,0x0F,0xFF);
+ 40c:	4f ef       	ldi	r20, 0xFF	; 255
+ 40e:	6f e0       	ldi	r22, 0x0F	; 15
+ 410:	80 e0       	ldi	r24, 0x00	; 0
+ 412:	0e 94 ae 00 	call	0x15c	; 0x15c <DIO_vidWritePortDirection>
+	DIO_vidWritePortData(PA,0x0F,0x00);
+ 416:	40 e0       	ldi	r20, 0x00	; 0
+ 418:	6f e0       	ldi	r22, 0x0F	; 15
+ 41a:	80 e0       	ldi	r24, 0x00	; 0
+ 41c:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+ 420:	08 95       	ret
+
+00000422 <STEPPER_MOTOR>:
+	
+}
+
+void STEPPER_MOTOR(unsigned char mode,unsigned char direction,unsigned short int speed)
+{  
+ 422:	0f 93       	push	r16
+ 424:	1f 93       	push	r17
+ 426:	96 2f       	mov	r25, r22
+	
+  static unsigned char motor_halfmode_state=0;
+  static unsigned char motor_fullmode_state=0;
+	
+	
+  if(TimeoutCounter_stepper>speed)
+ 428:	60 e0       	ldi	r22, 0x00	; 0
+ 42a:	70 e0       	ldi	r23, 0x00	; 0
+ 42c:	00 91 86 00 	lds	r16, 0x0086
+ 430:	10 91 87 00 	lds	r17, 0x0087
+ 434:	20 91 88 00 	lds	r18, 0x0088
+ 438:	30 91 89 00 	lds	r19, 0x0089
+ 43c:	40 17       	cp	r20, r16
+ 43e:	51 07       	cpc	r21, r17
+ 440:	62 07       	cpc	r22, r18
+ 442:	73 07       	cpc	r23, r19
+ 444:	08 f0       	brcs	.+2      	; 0x448 <STEPPER_MOTOR+0x26>
+ 446:	c6 c1       	rjmp	.+908    	; 0x7d4 <STEPPER_MOTOR+0x3b2>
+   {
+		if(mode==mode_full)
+ 448:	88 30       	cpi	r24, 0x08	; 8
+ 44a:	09 f0       	breq	.+2      	; 0x44e <STEPPER_MOTOR+0x2c>
+ 44c:	95 c0       	rjmp	.+298    	; 0x578 <STEPPER_MOTOR+0x156>
+			{ 
+			if(direction==right)
+ 44e:	91 30       	cpi	r25, 0x01	; 1
+ 450:	09 f0       	breq	.+2      	; 0x454 <STEPPER_MOTOR+0x32>
+ 452:	47 c0       	rjmp	.+142    	; 0x4e2 <STEPPER_MOTOR+0xc0>
+				{
+			        if(motor_fullmode_state==0)
+ 454:	80 91 84 00 	lds	r24, 0x0084
+ 458:	81 11       	cpse	r24, r1
+ 45a:	0f c0       	rjmp	.+30     	; 0x47a <STEPPER_MOTOR+0x58>
+					{
+						DIO_vidWritePortData(PA,0x0F,0x00);
+ 45c:	40 e0       	ldi	r20, 0x00	; 0
+ 45e:	6f e0       	ldi	r22, 0x0F	; 15
+ 460:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						DIO_vidWritePortData(PA,0x01,0xFF);
+ 464:	4f ef       	ldi	r20, 0xFF	; 255
+ 466:	61 e0       	ldi	r22, 0x01	; 1
+ 468:	80 e0       	ldi	r24, 0x00	; 0
+ 46a:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						motor_fullmode_state++;
+ 46e:	80 91 84 00 	lds	r24, 0x0084
+ 472:	8f 5f       	subi	r24, 0xFF	; 255
+ 474:	80 93 84 00 	sts	0x0084, r24
+ 478:	a5 c1       	rjmp	.+842    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					}
+					
+					else if(motor_fullmode_state==1)
+ 47a:	81 30       	cpi	r24, 0x01	; 1
+ 47c:	81 f4       	brne	.+32     	; 0x49e <STEPPER_MOTOR+0x7c>
+					{
+						DIO_vidWritePortData(PA,0x0F,0x00);
+ 47e:	40 e0       	ldi	r20, 0x00	; 0
+ 480:	6f e0       	ldi	r22, 0x0F	; 15
+ 482:	80 e0       	ldi	r24, 0x00	; 0
+ 484:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						DIO_vidWritePortData(PA,0x04,0xFF);
+ 488:	4f ef       	ldi	r20, 0xFF	; 255
+ 48a:	64 e0       	ldi	r22, 0x04	; 4
+ 48c:	80 e0       	ldi	r24, 0x00	; 0
+ 48e:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						motor_fullmode_state++;
+ 492:	80 91 84 00 	lds	r24, 0x0084
+ 496:	8f 5f       	subi	r24, 0xFF	; 255
+ 498:	80 93 84 00 	sts	0x0084, r24
+ 49c:	93 c1       	rjmp	.+806    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					}
+					else if(motor_fullmode_state==2)
+ 49e:	82 30       	cpi	r24, 0x02	; 2
+ 4a0:	81 f4       	brne	.+32     	; 0x4c2 <STEPPER_MOTOR+0xa0>
+					{
+						DIO_vidWritePortData(PA,0x0F,0x00);
+ 4a2:	40 e0       	ldi	r20, 0x00	; 0
+ 4a4:	6f e0       	ldi	r22, 0x0F	; 15
+ 4a6:	80 e0       	ldi	r24, 0x00	; 0
+ 4a8:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						DIO_vidWritePortData(PA,0x02,0xFF);
+ 4ac:	4f ef       	ldi	r20, 0xFF	; 255
+ 4ae:	62 e0       	ldi	r22, 0x02	; 2
+ 4b0:	80 e0       	ldi	r24, 0x00	; 0
+ 4b2:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						motor_fullmode_state++;
+ 4b6:	80 91 84 00 	lds	r24, 0x0084
+ 4ba:	8f 5f       	subi	r24, 0xFF	; 255
+ 4bc:	80 93 84 00 	sts	0x0084, r24
+ 4c0:	81 c1       	rjmp	.+770    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					}
+					else if(motor_fullmode_state==3)
+ 4c2:	83 30       	cpi	r24, 0x03	; 3
+ 4c4:	09 f0       	breq	.+2      	; 0x4c8 <STEPPER_MOTOR+0xa6>
+ 4c6:	7e c1       	rjmp	.+764    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					{
+						DIO_vidWritePortData(PA,0x0F,0x00);
+ 4c8:	40 e0       	ldi	r20, 0x00	; 0
+ 4ca:	6f e0       	ldi	r22, 0x0F	; 15
+ 4cc:	80 e0       	ldi	r24, 0x00	; 0
+ 4ce:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						DIO_vidWritePortData(PA,0x08,0xFF);
+ 4d2:	4f ef       	ldi	r20, 0xFF	; 255
+ 4d4:	68 e0       	ldi	r22, 0x08	; 8
+ 4d6:	80 e0       	ldi	r24, 0x00	; 0
+ 4d8:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						motor_fullmode_state=0;
+ 4dc:	10 92 84 00 	sts	0x0084, r1
+ 4e0:	71 c1       	rjmp	.+738    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					}
+					
+				}
+		
+			else if(direction==left)
+ 4e2:	92 30       	cpi	r25, 0x02	; 2
+ 4e4:	09 f0       	breq	.+2      	; 0x4e8 <STEPPER_MOTOR+0xc6>
+ 4e6:	6e c1       	rjmp	.+732    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				{
+			      
+				 if(motor_fullmode_state==0)
+ 4e8:	80 91 84 00 	lds	r24, 0x0084
+ 4ec:	81 11       	cpse	r24, r1
+ 4ee:	0d c0       	rjmp	.+26     	; 0x50a <STEPPER_MOTOR+0xe8>
+				  {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 4f0:	40 e0       	ldi	r20, 0x00	; 0
+ 4f2:	6f e0       	ldi	r22, 0x0F	; 15
+ 4f4:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x02,0xFF);
+ 4f8:	4f ef       	ldi	r20, 0xFF	; 255
+ 4fa:	62 e0       	ldi	r22, 0x02	; 2
+ 4fc:	80 e0       	ldi	r24, 0x00	; 0
+ 4fe:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_fullmode_state=3;
+ 502:	83 e0       	ldi	r24, 0x03	; 3
+ 504:	80 93 84 00 	sts	0x0084, r24
+ 508:	5d c1       	rjmp	.+698    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				  
+				  
+				  else if(motor_fullmode_state==1)
+ 50a:	81 30       	cpi	r24, 0x01	; 1
+ 50c:	81 f4       	brne	.+32     	; 0x52e <STEPPER_MOTOR+0x10c>
+				  {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 50e:	40 e0       	ldi	r20, 0x00	; 0
+ 510:	6f e0       	ldi	r22, 0x0F	; 15
+ 512:	80 e0       	ldi	r24, 0x00	; 0
+ 514:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x08,0xFF);
+ 518:	4f ef       	ldi	r20, 0xFF	; 255
+ 51a:	68 e0       	ldi	r22, 0x08	; 8
+ 51c:	80 e0       	ldi	r24, 0x00	; 0
+ 51e:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_fullmode_state--;
+ 522:	80 91 84 00 	lds	r24, 0x0084
+ 526:	81 50       	subi	r24, 0x01	; 1
+ 528:	80 93 84 00 	sts	0x0084, r24
+ 52c:	4b c1       	rjmp	.+662    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				  else if(motor_fullmode_state==2)
+ 52e:	82 30       	cpi	r24, 0x02	; 2
+ 530:	81 f4       	brne	.+32     	; 0x552 <STEPPER_MOTOR+0x130>
+				  {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 532:	40 e0       	ldi	r20, 0x00	; 0
+ 534:	6f e0       	ldi	r22, 0x0F	; 15
+ 536:	80 e0       	ldi	r24, 0x00	; 0
+ 538:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x01,0xFF);
+ 53c:	4f ef       	ldi	r20, 0xFF	; 255
+ 53e:	61 e0       	ldi	r22, 0x01	; 1
+ 540:	80 e0       	ldi	r24, 0x00	; 0
+ 542:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_fullmode_state--;
+ 546:	80 91 84 00 	lds	r24, 0x0084
+ 54a:	81 50       	subi	r24, 0x01	; 1
+ 54c:	80 93 84 00 	sts	0x0084, r24
+ 550:	39 c1       	rjmp	.+626    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				  else if(motor_fullmode_state==3)
+ 552:	83 30       	cpi	r24, 0x03	; 3
+ 554:	09 f0       	breq	.+2      	; 0x558 <STEPPER_MOTOR+0x136>
+ 556:	36 c1       	rjmp	.+620    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 558:	40 e0       	ldi	r20, 0x00	; 0
+ 55a:	6f e0       	ldi	r22, 0x0F	; 15
+ 55c:	80 e0       	ldi	r24, 0x00	; 0
+ 55e:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x04,0xFF);
+ 562:	4f ef       	ldi	r20, 0xFF	; 255
+ 564:	64 e0       	ldi	r22, 0x04	; 4
+ 566:	80 e0       	ldi	r24, 0x00	; 0
+ 568:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_fullmode_state--;
+ 56c:	80 91 84 00 	lds	r24, 0x0084
+ 570:	81 50       	subi	r24, 0x01	; 1
+ 572:	80 93 84 00 	sts	0x0084, r24
+ 576:	26 c1       	rjmp	.+588    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				}
+		
+			}
+	
+		else if(mode==mode_half)
+ 578:	84 30       	cpi	r24, 0x04	; 4
+ 57a:	09 f0       	breq	.+2      	; 0x57e <STEPPER_MOTOR+0x15c>
+ 57c:	23 c1       	rjmp	.+582    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+			{
+			if(direction==right)
+ 57e:	91 30       	cpi	r25, 0x01	; 1
+ 580:	09 f0       	breq	.+2      	; 0x584 <STEPPER_MOTOR+0x162>
+ 582:	8f c0       	rjmp	.+286    	; 0x6a2 <STEPPER_MOTOR+0x280>
+				{
+			      if(motor_halfmode_state==0)
+ 584:	80 91 85 00 	lds	r24, 0x0085
+ 588:	81 11       	cpse	r24, r1
+ 58a:	0f c0       	rjmp	.+30     	; 0x5aa <STEPPER_MOTOR+0x188>
+			      {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 58c:	40 e0       	ldi	r20, 0x00	; 0
+ 58e:	6f e0       	ldi	r22, 0x0F	; 15
+ 590:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x0A,0xFF);
+ 594:	4f ef       	ldi	r20, 0xFF	; 255
+ 596:	6a e0       	ldi	r22, 0x0A	; 10
+ 598:	80 e0       	ldi	r24, 0x00	; 0
+ 59a:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+				      motor_halfmode_state++;
+ 59e:	80 91 85 00 	lds	r24, 0x0085
+ 5a2:	8f 5f       	subi	r24, 0xFF	; 255
+ 5a4:	80 93 85 00 	sts	0x0085, r24
+ 5a8:	0d c1       	rjmp	.+538    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+			      }
+			      
+			      else if(motor_halfmode_state==1)
+ 5aa:	81 30       	cpi	r24, 0x01	; 1
+ 5ac:	81 f4       	brne	.+32     	; 0x5ce <STEPPER_MOTOR+0x1ac>
+			      {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 5ae:	40 e0       	ldi	r20, 0x00	; 0
+ 5b0:	6f e0       	ldi	r22, 0x0F	; 15
+ 5b2:	80 e0       	ldi	r24, 0x00	; 0
+ 5b4:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x08,0xFF);
+ 5b8:	4f ef       	ldi	r20, 0xFF	; 255
+ 5ba:	68 e0       	ldi	r22, 0x08	; 8
+ 5bc:	80 e0       	ldi	r24, 0x00	; 0
+ 5be:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+				      motor_halfmode_state++;
+ 5c2:	80 91 85 00 	lds	r24, 0x0085
+ 5c6:	8f 5f       	subi	r24, 0xFF	; 255
+ 5c8:	80 93 85 00 	sts	0x0085, r24
+ 5cc:	fb c0       	rjmp	.+502    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+			      }
+			      else if(motor_halfmode_state==2)
+ 5ce:	82 30       	cpi	r24, 0x02	; 2
+ 5d0:	81 f4       	brne	.+32     	; 0x5f2 <STEPPER_MOTOR+0x1d0>
+			      {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 5d2:	40 e0       	ldi	r20, 0x00	; 0
+ 5d4:	6f e0       	ldi	r22, 0x0F	; 15
+ 5d6:	80 e0       	ldi	r24, 0x00	; 0
+ 5d8:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x09,0xFF);
+ 5dc:	4f ef       	ldi	r20, 0xFF	; 255
+ 5de:	69 e0       	ldi	r22, 0x09	; 9
+ 5e0:	80 e0       	ldi	r24, 0x00	; 0
+ 5e2:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+				      motor_halfmode_state++;
+ 5e6:	80 91 85 00 	lds	r24, 0x0085
+ 5ea:	8f 5f       	subi	r24, 0xFF	; 255
+ 5ec:	80 93 85 00 	sts	0x0085, r24
+ 5f0:	e9 c0       	rjmp	.+466    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+			      }
+			      else if(motor_halfmode_state==3)
+ 5f2:	83 30       	cpi	r24, 0x03	; 3
+ 5f4:	81 f4       	brne	.+32     	; 0x616 <STEPPER_MOTOR+0x1f4>
+			      {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 5f6:	40 e0       	ldi	r20, 0x00	; 0
+ 5f8:	6f e0       	ldi	r22, 0x0F	; 15
+ 5fa:	80 e0       	ldi	r24, 0x00	; 0
+ 5fc:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x01,0xFF);
+ 600:	4f ef       	ldi	r20, 0xFF	; 255
+ 602:	61 e0       	ldi	r22, 0x01	; 1
+ 604:	80 e0       	ldi	r24, 0x00	; 0
+ 606:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+				      motor_halfmode_state++;
+ 60a:	80 91 85 00 	lds	r24, 0x0085
+ 60e:	8f 5f       	subi	r24, 0xFF	; 255
+ 610:	80 93 85 00 	sts	0x0085, r24
+ 614:	d7 c0       	rjmp	.+430    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+			      }
+				  else if(motor_halfmode_state==4)
+ 616:	84 30       	cpi	r24, 0x04	; 4
+ 618:	81 f4       	brne	.+32     	; 0x63a <STEPPER_MOTOR+0x218>
+				  {
+					  DIO_vidWritePortData(PA,0x0F,0x00);
+ 61a:	40 e0       	ldi	r20, 0x00	; 0
+ 61c:	6f e0       	ldi	r22, 0x0F	; 15
+ 61e:	80 e0       	ldi	r24, 0x00	; 0
+ 620:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  DIO_vidWritePortData(PA,0x05,0xFF);
+ 624:	4f ef       	ldi	r20, 0xFF	; 255
+ 626:	65 e0       	ldi	r22, 0x05	; 5
+ 628:	80 e0       	ldi	r24, 0x00	; 0
+ 62a:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_halfmode_state++;
+ 62e:	80 91 85 00 	lds	r24, 0x0085
+ 632:	8f 5f       	subi	r24, 0xFF	; 255
+ 634:	80 93 85 00 	sts	0x0085, r24
+ 638:	c5 c0       	rjmp	.+394    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				  
+				  else if(motor_halfmode_state==5)
+ 63a:	85 30       	cpi	r24, 0x05	; 5
+ 63c:	81 f4       	brne	.+32     	; 0x65e <STEPPER_MOTOR+0x23c>
+				  {
+					 DIO_vidWritePortData(PA,0x0F,0x00);
+ 63e:	40 e0       	ldi	r20, 0x00	; 0
+ 640:	6f e0       	ldi	r22, 0x0F	; 15
+ 642:	80 e0       	ldi	r24, 0x00	; 0
+ 644:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					 DIO_vidWritePortData(PA,0x04,0xFF);
+ 648:	4f ef       	ldi	r20, 0xFF	; 255
+ 64a:	64 e0       	ldi	r22, 0x04	; 4
+ 64c:	80 e0       	ldi	r24, 0x00	; 0
+ 64e:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_halfmode_state++;
+ 652:	80 91 85 00 	lds	r24, 0x0085
+ 656:	8f 5f       	subi	r24, 0xFF	; 255
+ 658:	80 93 85 00 	sts	0x0085, r24
+ 65c:	b3 c0       	rjmp	.+358    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				  else if(motor_halfmode_state==6)
+ 65e:	86 30       	cpi	r24, 0x06	; 6
+ 660:	81 f4       	brne	.+32     	; 0x682 <STEPPER_MOTOR+0x260>
+				  {
+					 DIO_vidWritePortData(PA,0x0F,0x00);
+ 662:	40 e0       	ldi	r20, 0x00	; 0
+ 664:	6f e0       	ldi	r22, 0x0F	; 15
+ 666:	80 e0       	ldi	r24, 0x00	; 0
+ 668:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					 DIO_vidWritePortData(PA,0x06,0xFF);
+ 66c:	4f ef       	ldi	r20, 0xFF	; 255
+ 66e:	66 e0       	ldi	r22, 0x06	; 6
+ 670:	80 e0       	ldi	r24, 0x00	; 0
+ 672:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_halfmode_state++;
+ 676:	80 91 85 00 	lds	r24, 0x0085
+ 67a:	8f 5f       	subi	r24, 0xFF	; 255
+ 67c:	80 93 85 00 	sts	0x0085, r24
+ 680:	a1 c0       	rjmp	.+322    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				  else if(motor_halfmode_state==7)
+ 682:	87 30       	cpi	r24, 0x07	; 7
+ 684:	09 f0       	breq	.+2      	; 0x688 <STEPPER_MOTOR+0x266>
+ 686:	9e c0       	rjmp	.+316    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  {
+					 DIO_vidWritePortData(PA,0x0F,0x00);
+ 688:	40 e0       	ldi	r20, 0x00	; 0
+ 68a:	6f e0       	ldi	r22, 0x0F	; 15
+ 68c:	80 e0       	ldi	r24, 0x00	; 0
+ 68e:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					 DIO_vidWritePortData(PA,0x02,0xFF);
+ 692:	4f ef       	ldi	r20, 0xFF	; 255
+ 694:	62 e0       	ldi	r22, 0x02	; 2
+ 696:	80 e0       	ldi	r24, 0x00	; 0
+ 698:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+					  motor_halfmode_state=0;
+ 69c:	10 92 85 00 	sts	0x0085, r1
+ 6a0:	91 c0       	rjmp	.+290    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				  }
+				  
+				}
+		
+		
+			else if(direction==left)
+ 6a2:	92 30       	cpi	r25, 0x02	; 2
+ 6a4:	09 f0       	breq	.+2      	; 0x6a8 <STEPPER_MOTOR+0x286>
+ 6a6:	8e c0       	rjmp	.+284    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+				{  
+					 if(motor_halfmode_state==0)
+ 6a8:	80 91 85 00 	lds	r24, 0x0085
+ 6ac:	81 11       	cpse	r24, r1
+ 6ae:	0d c0       	rjmp	.+26     	; 0x6ca <STEPPER_MOTOR+0x2a8>
+					 {
+						 DIO_vidWritePortData(PA,0x0F,0x00);
+ 6b0:	40 e0       	ldi	r20, 0x00	; 0
+ 6b2:	6f e0       	ldi	r22, 0x0F	; 15
+ 6b4:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 DIO_vidWritePortData(PA,0x06,0xFF);
+ 6b8:	4f ef       	ldi	r20, 0xFF	; 255
+ 6ba:	66 e0       	ldi	r22, 0x06	; 6
+ 6bc:	80 e0       	ldi	r24, 0x00	; 0
+ 6be:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 motor_halfmode_state=7;
+ 6c2:	87 e0       	ldi	r24, 0x07	; 7
+ 6c4:	80 93 85 00 	sts	0x0085, r24
+ 6c8:	7d c0       	rjmp	.+250    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 }
+					 
+					 else if(motor_halfmode_state==1)
+ 6ca:	81 30       	cpi	r24, 0x01	; 1
+ 6cc:	81 f4       	brne	.+32     	; 0x6ee <STEPPER_MOTOR+0x2cc>
+					 {
+						  DIO_vidWritePortData(PA,0x0F,0x00);
+ 6ce:	40 e0       	ldi	r20, 0x00	; 0
+ 6d0:	6f e0       	ldi	r22, 0x0F	; 15
+ 6d2:	80 e0       	ldi	r24, 0x00	; 0
+ 6d4:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						  DIO_vidWritePortData(PA,0x02,0xFF);
+ 6d8:	4f ef       	ldi	r20, 0xFF	; 255
+ 6da:	62 e0       	ldi	r22, 0x02	; 2
+ 6dc:	80 e0       	ldi	r24, 0x00	; 0
+ 6de:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						  motor_halfmode_state--;
+ 6e2:	80 91 85 00 	lds	r24, 0x0085
+ 6e6:	81 50       	subi	r24, 0x01	; 1
+ 6e8:	80 93 85 00 	sts	0x0085, r24
+ 6ec:	6b c0       	rjmp	.+214    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 }
+					 else if(motor_halfmode_state==2)
+ 6ee:	82 30       	cpi	r24, 0x02	; 2
+ 6f0:	81 f4       	brne	.+32     	; 0x712 <STEPPER_MOTOR+0x2f0>
+					 {
+						 DIO_vidWritePortData(PA,0x0F,0x00);
+ 6f2:	40 e0       	ldi	r20, 0x00	; 0
+ 6f4:	6f e0       	ldi	r22, 0x0F	; 15
+ 6f6:	80 e0       	ldi	r24, 0x00	; 0
+ 6f8:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 DIO_vidWritePortData(PA,0x0A,0xFF);
+ 6fc:	4f ef       	ldi	r20, 0xFF	; 255
+ 6fe:	6a e0       	ldi	r22, 0x0A	; 10
+ 700:	80 e0       	ldi	r24, 0x00	; 0
+ 702:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 motor_halfmode_state--;
+ 706:	80 91 85 00 	lds	r24, 0x0085
+ 70a:	81 50       	subi	r24, 0x01	; 1
+ 70c:	80 93 85 00 	sts	0x0085, r24
+ 710:	59 c0       	rjmp	.+178    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 }
+					 else if(motor_halfmode_state==3)
+ 712:	83 30       	cpi	r24, 0x03	; 3
+ 714:	81 f4       	brne	.+32     	; 0x736 <STEPPER_MOTOR+0x314>
+					 {
+						 DIO_vidWritePortData(PA,0x0F,0x00);
+ 716:	40 e0       	ldi	r20, 0x00	; 0
+ 718:	6f e0       	ldi	r22, 0x0F	; 15
+ 71a:	80 e0       	ldi	r24, 0x00	; 0
+ 71c:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 DIO_vidWritePortData(PA,0x08,0xFF);
+ 720:	4f ef       	ldi	r20, 0xFF	; 255
+ 722:	68 e0       	ldi	r22, 0x08	; 8
+ 724:	80 e0       	ldi	r24, 0x00	; 0
+ 726:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 motor_halfmode_state--;
+ 72a:	80 91 85 00 	lds	r24, 0x0085
+ 72e:	81 50       	subi	r24, 0x01	; 1
+ 730:	80 93 85 00 	sts	0x0085, r24
+ 734:	47 c0       	rjmp	.+142    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 }
+					 else if(motor_halfmode_state==4)
+ 736:	84 30       	cpi	r24, 0x04	; 4
+ 738:	81 f4       	brne	.+32     	; 0x75a <STEPPER_MOTOR+0x338>
+					 {
+						 DIO_vidWritePortData(PA,0x0F,0x00);
+ 73a:	40 e0       	ldi	r20, 0x00	; 0
+ 73c:	6f e0       	ldi	r22, 0x0F	; 15
+ 73e:	80 e0       	ldi	r24, 0x00	; 0
+ 740:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 DIO_vidWritePortData(PA,0x09,0xFF);
+ 744:	4f ef       	ldi	r20, 0xFF	; 255
+ 746:	69 e0       	ldi	r22, 0x09	; 9
+ 748:	80 e0       	ldi	r24, 0x00	; 0
+ 74a:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 motor_halfmode_state--;
+ 74e:	80 91 85 00 	lds	r24, 0x0085
+ 752:	81 50       	subi	r24, 0x01	; 1
+ 754:	80 93 85 00 	sts	0x0085, r24
+ 758:	35 c0       	rjmp	.+106    	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 }
+					 
+					 else if(motor_halfmode_state==5)
+ 75a:	85 30       	cpi	r24, 0x05	; 5
+ 75c:	81 f4       	brne	.+32     	; 0x77e <STEPPER_MOTOR+0x35c>
+					 {
+						 DIO_vidWritePortData(PA,0x0F,0x00);
+ 75e:	40 e0       	ldi	r20, 0x00	; 0
+ 760:	6f e0       	ldi	r22, 0x0F	; 15
+ 762:	80 e0       	ldi	r24, 0x00	; 0
+ 764:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 DIO_vidWritePortData(PA,0x01,0xFF);
+ 768:	4f ef       	ldi	r20, 0xFF	; 255
+ 76a:	61 e0       	ldi	r22, 0x01	; 1
+ 76c:	80 e0       	ldi	r24, 0x00	; 0
+ 76e:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 motor_halfmode_state--;
+ 772:	80 91 85 00 	lds	r24, 0x0085
+ 776:	81 50       	subi	r24, 0x01	; 1
+ 778:	80 93 85 00 	sts	0x0085, r24
+ 77c:	23 c0       	rjmp	.+70     	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 }
+					 else if(motor_halfmode_state==6)
+ 77e:	86 30       	cpi	r24, 0x06	; 6
+ 780:	81 f4       	brne	.+32     	; 0x7a2 <STEPPER_MOTOR+0x380>
+					 {
+						  DIO_vidWritePortData(PA,0x0F,0x00);
+ 782:	40 e0       	ldi	r20, 0x00	; 0
+ 784:	6f e0       	ldi	r22, 0x0F	; 15
+ 786:	80 e0       	ldi	r24, 0x00	; 0
+ 788:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						  DIO_vidWritePortData(PA,0x05,0xFF);
+ 78c:	4f ef       	ldi	r20, 0xFF	; 255
+ 78e:	65 e0       	ldi	r22, 0x05	; 5
+ 790:	80 e0       	ldi	r24, 0x00	; 0
+ 792:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 motor_halfmode_state--;
+ 796:	80 91 85 00 	lds	r24, 0x0085
+ 79a:	81 50       	subi	r24, 0x01	; 1
+ 79c:	80 93 85 00 	sts	0x0085, r24
+ 7a0:	11 c0       	rjmp	.+34     	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 }
+					 else if(motor_halfmode_state==7)
+ 7a2:	87 30       	cpi	r24, 0x07	; 7
+ 7a4:	79 f4       	brne	.+30     	; 0x7c4 <STEPPER_MOTOR+0x3a2>
+					 {
+						 DIO_vidWritePortData(PA,0x0F,0x00);
+ 7a6:	40 e0       	ldi	r20, 0x00	; 0
+ 7a8:	6f e0       	ldi	r22, 0x0F	; 15
+ 7aa:	80 e0       	ldi	r24, 0x00	; 0
+ 7ac:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 DIO_vidWritePortData(PA,0x04,0xFF);
+ 7b0:	4f ef       	ldi	r20, 0xFF	; 255
+ 7b2:	64 e0       	ldi	r22, 0x04	; 4
+ 7b4:	80 e0       	ldi	r24, 0x00	; 0
+ 7b6:	0e 94 de 00 	call	0x1bc	; 0x1bc <DIO_vidWritePortData>
+						 motor_halfmode_state--;
+ 7ba:	80 91 85 00 	lds	r24, 0x0085
+ 7be:	81 50       	subi	r24, 0x01	; 1
+ 7c0:	80 93 85 00 	sts	0x0085, r24
+					 }
+				}				
+			}	
+  TimeoutCounter_stepper=0; 
+ 7c4:	10 92 86 00 	sts	0x0086, r1
+ 7c8:	10 92 87 00 	sts	0x0087, r1
+ 7cc:	10 92 88 00 	sts	0x0088, r1
+ 7d0:	10 92 89 00 	sts	0x0089, r1
+  }	         
+}
+ 7d4:	1f 91       	pop	r17
+ 7d6:	0f 91       	pop	r16
+ 7d8:	08 95       	ret
+
+000007da <main>:
+#include "stepper_motor.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+int main(void)
+{
+ 7da:	cf 93       	push	r28
+ 7dc:	df 93       	push	r29
+ 7de:	cd b7       	in	r28, 0x3d	; 61
+ 7e0:	de b7       	in	r29, 0x3e	; 62
+ 7e2:	2b 97       	sbiw	r28, 0x0b	; 11
+ 7e4:	0f b6       	in	r0, 0x3f	; 63
+ 7e6:	f8 94       	cli
+ 7e8:	de bf       	out	0x3e, r29	; 62
+ 7ea:	0f be       	out	0x3f, r0	; 63
+ 7ec:	cd bf       	out	0x3d, r28	; 61
+	unsigned char x=0;
+ 7ee:	19 82       	std	Y+1, r1	; 0x01
+	unsigned char mode_flag=0;
+	unsigned char dir_flag=0;
+	unsigned char state_mode_flag=0;
+	unsigned char state_direction_flag=0;
+	unsigned short int speed=1000;
+	unsigned short int speed_array[5]={3000,2000,1000,500,200};
+ 7f0:	8a e0       	ldi	r24, 0x0A	; 10
+ 7f2:	e0 e7       	ldi	r30, 0x70	; 112
+ 7f4:	f0 e0       	ldi	r31, 0x00	; 0
+ 7f6:	de 01       	movw	r26, r28
+ 7f8:	12 96       	adiw	r26, 0x02	; 2
+ 7fa:	01 90       	ld	r0, Z+
+ 7fc:	0d 92       	st	X+, r0
+ 7fe:	8a 95       	dec	r24
+ 800:	e1 f7       	brne	.-8      	; 0x7fa <main+0x20>
+	signed char i=2;
+	LED_Init();
+ 802:	0e 94 a2 01 	call	0x344	; 0x344 <LED_Init>
+	BTN_Init();
+ 806:	0e 94 49 00 	call	0x92	; 0x92 <BTN_Init>
+	stepper_Init();
+ 80a:	0e 94 06 02 	call	0x40c	; 0x40c <stepper_Init>
+	sei();
+ 80e:	78 94       	sei
+	unsigned char dir_flag=0;
+	unsigned char state_mode_flag=0;
+	unsigned char state_direction_flag=0;
+	unsigned short int speed=1000;
+	unsigned short int speed_array[5]={3000,2000,1000,500,200};
+	signed char i=2;
+ 810:	68 94       	set
+ 812:	ff 24       	eor	r15, r15
+ 814:	f1 f8       	bld	r15, 1
+	unsigned char x=0;
+	unsigned char mode_flag=0;
+	unsigned char dir_flag=0;
+	unsigned char state_mode_flag=0;
+	unsigned char state_direction_flag=0;
+	unsigned short int speed=1000;
+ 816:	08 ee       	ldi	r16, 0xE8	; 232
+ 818:	13 e0       	ldi	r17, 0x03	; 3
+{
+	unsigned char x=0;
+	unsigned char mode_flag=0;
+	unsigned char dir_flag=0;
+	unsigned char state_mode_flag=0;
+	unsigned char state_direction_flag=0;
+ 81a:	91 2c       	mov	r9, r1
+int main(void)
+{
+	unsigned char x=0;
+	unsigned char mode_flag=0;
+	unsigned char dir_flag=0;
+	unsigned char state_mode_flag=0;
+ 81c:	a1 2c       	mov	r10, r1
+
+int main(void)
+{
+	unsigned char x=0;
+	unsigned char mode_flag=0;
+	unsigned char dir_flag=0;
+ 81e:	d1 2c       	mov	r13, r1
+#include <avr/interrupt.h>
+
+int main(void)
+{
+	unsigned char x=0;
+	unsigned char mode_flag=0;
+ 820:	e1 2c       	mov	r14, r1
+		    { mode_flag=mode_full;
+			  state_mode_flag=1;	
+			}
+		  else
+		  {
+			 mode_flag=mode_half; 
+ 822:	68 94       	set
+ 824:	88 24       	eor	r8, r8
+ 826:	82 f8       	bld	r8, 2
+       BTN_GetBtnState(MODE_BTN,&x);
+	   if(x==BTN_STATE_ACTIVE)
+	   { 
+		  if (state_mode_flag==0)
+		    { mode_flag=mode_full;
+			  state_mode_flag=1;	
+ 828:	cc 24       	eor	r12, r12
+ 82a:	c3 94       	inc	r12
+    {  
+       BTN_GetBtnState(MODE_BTN,&x);
+	   if(x==BTN_STATE_ACTIVE)
+	   { 
+		  if (state_mode_flag==0)
+		    { mode_flag=mode_full;
+ 82c:	68 94       	set
+ 82e:	77 24       	eor	r7, r7
+ 830:	73 f8       	bld	r7, 3
+			  dir_flag=right;
+			  state_direction_flag=1;
+		  }
+		  else
+		  {
+			  dir_flag=left;
+ 832:	68 94       	set
+ 834:	bb 24       	eor	r11, r11
+ 836:	b1 f8       	bld	r11, 1
+	stepper_Init();
+	sei();
+		
+    while(1)
+    {  
+       BTN_GetBtnState(MODE_BTN,&x);
+ 838:	be 01       	movw	r22, r28
+ 83a:	6f 5f       	subi	r22, 0xFF	; 255
+ 83c:	7f 4f       	sbci	r23, 0xFF	; 255
+ 83e:	80 e0       	ldi	r24, 0x00	; 0
+ 840:	0e 94 6e 00 	call	0xdc	; 0xdc <BTN_GetBtnState>
+	   if(x==BTN_STATE_ACTIVE)
+ 844:	89 81       	ldd	r24, Y+1	; 0x01
+ 846:	81 11       	cpse	r24, r1
+ 848:	07 c0       	rjmp	.+14     	; 0x858 <main+0x7e>
+	   { 
+		  if (state_mode_flag==0)
+ 84a:	a1 10       	cpse	r10, r1
+ 84c:	03 c0       	rjmp	.+6      	; 0x854 <main+0x7a>
+		    { mode_flag=mode_full;
+			  state_mode_flag=1;	
+ 84e:	ac 2c       	mov	r10, r12
+    {  
+       BTN_GetBtnState(MODE_BTN,&x);
+	   if(x==BTN_STATE_ACTIVE)
+	   { 
+		  if (state_mode_flag==0)
+		    { mode_flag=mode_full;
+ 850:	e7 2c       	mov	r14, r7
+ 852:	02 c0       	rjmp	.+4      	; 0x858 <main+0x7e>
+			  state_mode_flag=1;	
+			}
+		  else
+		  {
+			 mode_flag=mode_half; 
+			 state_mode_flag=0; 	
+ 854:	a1 2c       	mov	r10, r1
+		    { mode_flag=mode_full;
+			  state_mode_flag=1;	
+			}
+		  else
+		  {
+			 mode_flag=mode_half; 
+ 856:	e8 2c       	mov	r14, r8
+		  }							
+	   }
+	   
+	 
+	  
+	  BTN_GetBtnState(DIR_BTN,&x);
+ 858:	be 01       	movw	r22, r28
+ 85a:	6f 5f       	subi	r22, 0xFF	; 255
+ 85c:	7f 4f       	sbci	r23, 0xFF	; 255
+ 85e:	8c 2d       	mov	r24, r12
+ 860:	0e 94 6e 00 	call	0xdc	; 0xdc <BTN_GetBtnState>
+	  if(x==BTN_STATE_ACTIVE)
+ 864:	89 81       	ldd	r24, Y+1	; 0x01
+ 866:	81 11       	cpse	r24, r1
+ 868:	07 c0       	rjmp	.+14     	; 0x878 <__stack+0x19>
+	  {
+		  if (state_direction_flag==0)
+ 86a:	91 10       	cpse	r9, r1
+ 86c:	03 c0       	rjmp	.+6      	; 0x874 <__stack+0x15>
+		  { 
+			  dir_flag=right;
+			  state_direction_flag=1;
+ 86e:	9c 2c       	mov	r9, r12
+	  BTN_GetBtnState(DIR_BTN,&x);
+	  if(x==BTN_STATE_ACTIVE)
+	  {
+		  if (state_direction_flag==0)
+		  { 
+			  dir_flag=right;
+ 870:	dc 2c       	mov	r13, r12
+ 872:	02 c0       	rjmp	.+4      	; 0x878 <__stack+0x19>
+			  state_direction_flag=1;
+		  }
+		  else
+		  {
+			  dir_flag=left;
+			  state_direction_flag=0;
+ 874:	91 2c       	mov	r9, r1
+			  dir_flag=right;
+			  state_direction_flag=1;
+		  }
+		  else
+		  {
+			  dir_flag=left;
+ 876:	db 2c       	mov	r13, r11
+			  state_direction_flag=0;
+		  }
+	  }
+	   
+	  
+	   BTN_GetBtnState(SPEED_UP_BTN,&x);
+ 878:	be 01       	movw	r22, r28
+ 87a:	6f 5f       	subi	r22, 0xFF	; 255
+ 87c:	7f 4f       	sbci	r23, 0xFF	; 255
+ 87e:	8b 2d       	mov	r24, r11
+ 880:	0e 94 6e 00 	call	0xdc	; 0xdc <BTN_GetBtnState>
+	   if(x==BTN_STATE_ACTIVE)
+ 884:	89 81       	ldd	r24, Y+1	; 0x01
+ 886:	81 11       	cpse	r24, r1
+ 888:	10 c0       	rjmp	.+32     	; 0x8aa <__stack+0x4b>
+	   {
+		   i++;
+ 88a:	f3 94       	inc	r15
+		   if(i==5)
+ 88c:	85 e0       	ldi	r24, 0x05	; 5
+ 88e:	f8 12       	cpse	r15, r24
+ 890:	01 c0       	rjmp	.+2      	; 0x894 <__stack+0x35>
+		   {
+			  i=0;
+ 892:	f1 2c       	mov	r15, r1
+		   }
+		   speed=speed_array[i];
+ 894:	ef 2d       	mov	r30, r15
+ 896:	ee 0f       	add	r30, r30
+ 898:	ff 0b       	sbc	r31, r31
+ 89a:	81 e0       	ldi	r24, 0x01	; 1
+ 89c:	90 e0       	ldi	r25, 0x00	; 0
+ 89e:	8c 0f       	add	r24, r28
+ 8a0:	9d 1f       	adc	r25, r29
+ 8a2:	e8 0f       	add	r30, r24
+ 8a4:	f9 1f       	adc	r31, r25
+ 8a6:	01 81       	ldd	r16, Z+1	; 0x01
+ 8a8:	12 81       	ldd	r17, Z+2	; 0x02
+		   
+		   
+		   
+	   }
+	   
+	   BTN_GetBtnState(SPEED_DOWN_BTN,&x);
+ 8aa:	be 01       	movw	r22, r28
+ 8ac:	6f 5f       	subi	r22, 0xFF	; 255
+ 8ae:	7f 4f       	sbci	r23, 0xFF	; 255
+ 8b0:	83 e0       	ldi	r24, 0x03	; 3
+ 8b2:	0e 94 6e 00 	call	0xdc	; 0xdc <BTN_GetBtnState>
+	    if(x==BTN_STATE_ACTIVE)
+ 8b6:	89 81       	ldd	r24, Y+1	; 0x01
+ 8b8:	81 11       	cpse	r24, r1
+ 8ba:	10 c0       	rjmp	.+32     	; 0x8dc <__stack+0x7d>
+	     {
+		     
+			 i--;
+ 8bc:	fa 94       	dec	r15
+			 if(i==-1)
+ 8be:	9f ef       	ldi	r25, 0xFF	; 255
+ 8c0:	f9 12       	cpse	r15, r25
+ 8c2:	01 c0       	rjmp	.+2      	; 0x8c6 <__stack+0x67>
+			 {
+				 i=4;
+ 8c4:	f8 2c       	mov	r15, r8
+			 }
+			  speed=speed_array[i]; 
+ 8c6:	ef 2d       	mov	r30, r15
+ 8c8:	ee 0f       	add	r30, r30
+ 8ca:	ff 0b       	sbc	r31, r31
+ 8cc:	81 e0       	ldi	r24, 0x01	; 1
+ 8ce:	90 e0       	ldi	r25, 0x00	; 0
+ 8d0:	8c 0f       	add	r24, r28
+ 8d2:	9d 1f       	adc	r25, r29
+ 8d4:	e8 0f       	add	r30, r24
+ 8d6:	f9 1f       	adc	r31, r25
+ 8d8:	01 81       	ldd	r16, Z+1	; 0x01
+ 8da:	12 81       	ldd	r17, Z+2	; 0x02
+			
+	     }
+	 
+	 
+	 
+	  DIR_MODE_LEDS(dir_flag,mode_flag);
+ 8dc:	6e 2d       	mov	r22, r14
+ 8de:	8d 2d       	mov	r24, r13
+ 8e0:	0e 94 c0 01 	call	0x380	; 0x380 <DIR_MODE_LEDS>
+	  STEPPER_MOTOR(mode_flag,dir_flag,speed);
+ 8e4:	a8 01       	movw	r20, r16
+ 8e6:	6d 2d       	mov	r22, r13
+ 8e8:	8e 2d       	mov	r24, r14
+ 8ea:	0e 94 11 02 	call	0x422	; 0x422 <STEPPER_MOTOR>
+	
+  }	  
+ 8ee:	a4 cf       	rjmp	.-184    	; 0x838 <main+0x5e>
+
+000008f0 <_exit>:
+ 8f0:	f8 94       	cli
+
+000008f2 <__stop_program>:
+ 8f2:	ff cf       	rjmp	.-2      	; 0x8f2 <__stop_program>

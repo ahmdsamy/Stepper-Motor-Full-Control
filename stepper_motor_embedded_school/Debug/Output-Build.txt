@@ -1,0 +1,35 @@
+﻿------ Build started: Project: stepper_motor_embedded_school, Configuration: Debug AVR ------
+Build started.
+Project "stepper_motor_embedded_school.cproj" (default targets):
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "CoreBuild" in file "C:\Program Files (x86)\Atmel\Atmel Studio 6.1\Vs\Compiler.targets" from project "E:\embedded school\stepper_motor_embedded_school\stepper_motor_embedded_school\stepper_motor_embedded_school.cproj" (target "Build" depends on it):
+	Task "RunCompilerTask"
+		C:\Program Files (x86)\Atmel\Atmel Studio 6.1\shellUtils\make.exe all 
+		Building file: .././stepper_motor_embedded_school.c
+		Invoking: AVR/GNU C Compiler : 
+		"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.876\avr8-gnu-toolchain\bin\avr-gcc.exe" -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "stepper_motor_embedded_school.d" -MT"stepper_motor_embedded_school.d" -MT"stepper_motor_embedded_school.o"   -o"stepper_motor_embedded_school.o" ".././stepper_motor_embedded_school.c" 
+		Finished building: .././stepper_motor_embedded_school.c
+		Building target: stepper_motor_embedded_school.elf
+		Invoking: AVR/GNU Linker : 
+		"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.876\avr8-gnu-toolchain\bin\avr-gcc.exe" -o stepper_motor_embedded_school.elf  BTN.o LEDS.o DIO.o GPT.o stepper_motor_embedded_school.o   -Wl,-Map="stepper_motor_embedded_school.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega32 
+		Finished building target: stepper_motor_embedded_school.elf
+		"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.876\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "stepper_motor_embedded_school.elf" "stepper_motor_embedded_school.hex"
+		"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.876\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "stepper_motor_embedded_school.elf" "stepper_motor_embedded_school.eep" || exit 0
+		"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.876\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "stepper_motor_embedded_school.elf" > "stepper_motor_embedded_school.lss"
+		"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.876\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "stepper_motor_embedded_school.elf" "stepper_motor_embedded_school.srec"
+		"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.876\avr8-gnu-toolchain\bin\avr-size.exe" "stepper_motor_embedded_school.elf"
+		   text	   data	    bss	    dec	    hex	filename
+		   1370	     16	     10	   1396	    574	stepper_motor_embedded_school.elf
+	Done executing task "RunCompilerTask".
+	Task "RunOutputFileVerifyTask"
+				Program Memory Usage 	:	1386 bytes   4.2 % Full
+				Data Memory Usage 		:	26 bytes   1.3 % Full
+	Done executing task "RunOutputFileVerifyTask".
+Done building target "CoreBuild" in project "stepper_motor_embedded_school.cproj".
+Target "PostBuildEvent" skipped, due to false condition; ('$(PostBuildEvent)' != '') was evaluated as ('' != '').
+Target "Build" in file "C:\Program Files (x86)\Atmel\Atmel Studio 6.1\Vs\Avr.common.targets" from project "E:\embedded school\stepper_motor_embedded_school\stepper_motor_embedded_school\stepper_motor_embedded_school.cproj" (entry point):
+Done building target "Build" in project "stepper_motor_embedded_school.cproj".
+Done building project "stepper_motor_embedded_school.cproj".
+
+Build succeeded.
+========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========
